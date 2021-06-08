@@ -8,12 +8,12 @@
 </head>
 <body>
 	<form method="post" action="/RubricaWeb/LoginServlet">
-		<p>
-			Username: <input type="text" name="username">
-		</p>
-		<p>
-			Password: <input type="password" name="password">
-		</p>
+			<p>
+				Username: <input type="text" name="username">
+			</p>
+			<p>
+				Password: <input type="password" name="password">
+			</p>
 		<button type="submit">LogIn</button>
 		<button type="reset">reset</button>
 	</form>

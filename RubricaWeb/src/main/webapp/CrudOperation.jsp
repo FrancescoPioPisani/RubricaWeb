@@ -4,12 +4,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Secure Resource</title>
+<title>Crud Operation</title>
 </head>
 <body>
-	<div>
-		Risorsa protetta
-	</div>
-	<a href="/RubricaWeb/LoginServlet?action=logout">Logout</a>
+
+	<% String action = request.getParameter("action");%>
+	<%=System.out.println(action)%>
+	
+	
+
+
 </body>
 </html>

@@ -14,6 +14,7 @@ import it.rdev.rubrica.dto.User;
 
 /**
  * Servlet implementation class IndexServlet
+ * @author Francesco Pio Pisani
  */
 @WebServlet("/")
 public class IndexServlet extends HttpServlet {
@@ -24,7 +25,7 @@ public class IndexServlet extends HttpServlet {
      */
     public IndexServlet() {
         super();
-        // TODO Auto-generated constructor stub
+       
     }
 
 	/**
@@ -32,14 +33,8 @@ public class IndexServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("title", "Login Page");
-		List<User> users = new ArrayList<>();
-		users.add(new User().setPassword("pass01").setUsername("user01"));
-		users.add(new User().setPassword("pass02").setUsername("user02"));
-		users.add(new User().setPassword("pass03").setUsername("user03"));
-		users.add(new User().setPassword("pass04").setUsername("user04"));
-		request.setAttribute("users", users);
 		
-		request.getRequestDispatcher("home.jsp").forward(request, response);
+		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 	/**
