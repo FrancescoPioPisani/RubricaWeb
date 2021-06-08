@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.rdev.rubrica.dto.User;
+import it.rdev.rubrica.model.ContactDao;
+import it.rdev.rubrica.model.entities.Contact;
 
 /**
  * Servlet implementation class LoginServlet
@@ -31,33 +33,28 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<User> users = new ArrayList<>();
-		users.add(new User().setPassword("pass01").setUsername("user01"));
-		users.add(new User().setPassword("pass02").setUsername("user02"));
-		users.add(new User().setPassword("pass03").setUsername("user03"));
-		users.add(new User().setPassword("pass04").setUsername("user04"));
+		List<Contact> users = ContactDao.findAllNamedQuery();
 		
 		
+		HttpSession session = request.getSession();
 		request.setAttribute("users", users);
 		
-		User user = new User()
-				.setPassword(request.getParameter("password"))
-				.setUsername(request.getParameter("username"));
+		Contact user = new Contact();
+				user.setSurname(request.getParameter("password"));
+				user.setName(request.getParameter("username"));
 		
-		users.add(user);
 		
-		if(user.getUsername() != null && user.getPassword() != null) {
-			HttpSession session = request.getSession();
+		if(user.getName() != null && user.getSurname() != null) {
 			session.setAttribute("user", user);
 		}
-		if (user.getUsername().equals("admin") && user.getPassword().equals("admin")) {
-			HttpSession session = request.getSession();
-			session.setAttribute("admin", user);
+		
+		if (user.getName().equals("admin") && user.getSurname().equals("admin")) {
+			session.setAttribute("user", "admin");
 		}
+	
 		
 		String action = request.getParameter("action");
 		if(action != null && action.equals("logout") ) {
-			HttpSession session = request.getSession();
 			session.invalidate();
 		}
 		

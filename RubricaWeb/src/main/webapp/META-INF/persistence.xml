@@ -10,7 +10,9 @@
 		<class>it.rdev.rubrica.model.entities.Contact</class>
 		<class>it.rdev.rubrica.model.entities.Email</class>
 		<class>it.rdev.rubrica.model.entities.Phone</class>
+		
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/rubrica"/>
@@ -19,7 +21,6 @@
             <property name="hibernate.connection.password" value=""/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-            
         </properties>
 	
   </persistence-unit>

@@ -32,8 +32,6 @@ public class IndexServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("title", "Login Page");
-		
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 

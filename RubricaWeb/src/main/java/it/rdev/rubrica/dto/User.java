@@ -2,6 +2,8 @@ package it.rdev.rubrica.dto;
 
 import java.io.Serializable;
 
+import it.rdev.rubrica.model.entities.Contact;
+
 public class User implements Serializable {
 
 	/**
